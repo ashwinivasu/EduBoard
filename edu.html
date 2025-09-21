@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduBoard — Student Progress Dashboard</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pb3Xw3kXb7k1G+Yz9MZ8v6q9tce3p2E3w2Rkq2mKZV6lQYQGQ2p1IYhK4Z7u6FzVgQ2rKJ7s5z8l0j4a1b2c3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./edu_style.css"/>
+</head>
+<body>
+  <div class="app" role="application">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">EB</div>
+        <div>
+          <div style="font-weight:700">EduBoard</div>
+          <div class="small muted">Student Dashboard</div>
+        </div>
+      </div>
+
+      <ul class="nav-list" role="list">
+        <li><a href="#" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+        <li><a href="#subjects"><i class="fa-solid fa-book-open"></i> Subjects</a></li>
+        <li><a href="#attendance"><i class="fa-solid fa-calendar-check"></i> Attendance</a></li>
+        <li><a href="#profile"><i class="fa-solid fa-user"></i> Profile</a></li>
+        <li><a href="#settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+      <!-- Top header -->
+      <header class="topbar">
+        <div class="top-left">
+          <button class="mobile-toggle" aria-controls="sidebar" aria-expanded="false" id="menuBtn" title="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+          <div style="display:flex;flex-direction:column">
+            <h1 style="margin:0;font-size:20px">Welcome back, <span style="color:var(--accent);">Ashwini</span></h1>
+            <div class="muted small">Here's a summary of your academic progress</div>
+          </div>
+        </div>
+
+        <div class="profile-row">
+          <div class="search" role="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search subjects, tasks..." aria-label="Search">
+          </div>
+
+          <div class="notif" aria-live="polite" style="margin-left:12px">
+            <button aria-label="Notifications" title="Notifications" style="background:transparent;border:0;font-size:18px"><i class="fa-regular fa-bell"></i></button>
+            <span class="badge">3</span>
+          </div>
+
+          <div class="avatar" aria-hidden="false">
+            <img src="./human_img.jpg" alt="Student avatar">
+          </div>
+        </div>
+      </header>
+
+      <!-- Overview cards -->
+      <section class="grid-cards" aria-label="Overview cards">
+        <article class="card" aria-labelledby="gpa">
+          <div class="small muted">GPA</div>
+          <div id="gpa" class="value">3.82</div>
+          <div class="muted small">Current semester GPA</div>
+        </article>
+
+        <article class="card" aria-labelledby="att">
+          <div class="small muted">Attendance</div>
+          <div id="att" class="value">92%</div>
+          <div class="muted small">Overall attendance</div>
+        </article>
+
+        <article class="card" aria-labelledby="due">
+          <div class="small muted">Assignments Due</div>
+          <div id="due" class="value">2</div>
+          <div class="muted small">Due this week</div>
+        </article>
+
+        <article class="card" aria-labelledby="credits">
+          <div class="small muted">Total Credits</div>
+          <div id="credits" class="value">18</div>
+          <div class="muted small">Completed credits</div>
+        </article>
+      </section>
+
+      <!-- Content grid: left -> progress table; right -> deadlines & profile -->
+      <section class="content-grid">
+
+        <article aria-labelledby="progress-heading">
+          <h2 id="progress-heading" style="margin-top:0">Subject Progress</h2>
+
+          <!-- Table as list rows for flexibility -->
+          <div style="display:flex;flex-direction:column;gap:12px">
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="sub-info">
+                <div style="font-weight:700">Data Structures</div>
+                <div class="muted small">Instructor: Prof. Ramesh • 4 credits</div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                  <span style="width:76%"></span>
+                </div>
+                <div class="progress-label">76% complete</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="sub-info">
+                <div style="font-weight:700">Database Systems</div>
+                <div class="muted small">Instructor: Dr. Kavitha • 3 credits</div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                  <span style="width:88%"></span>
+                </div>
+                <div class="progress-label">88% complete</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="sub-info">
+                <div style="font-weight:700">Computer Networks</div>
+                <div class="muted small">Instructor: Dr. Sen • 3 credits</div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100">
+                  <span style="width:54%"></span>
+                </div>
+                <div class="progress-label">54% complete</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="sub-info">
+                <div style="font-weight:700">Operating Systems</div>
+                <div class="muted small">Instructor: Prof. Meena • 4 credits</div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+                  <span style="width:66%"></span>
+                </div>
+                <div class="progress-label">66% complete</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="sub-info">
+                <div style="font-weight:700">Software Engineering</div>
+                <div class="muted small">Instructor: Dr. Balu • 4 credits</div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                  <span style="width:45%"></span>
+                </div>
+                <div class="progress-label">45% complete</div>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+
+        <aside aria-labelledby="side-heading">
+          <h3 id="side-heading" style="margin-top:0">Upcoming Deadlines</h3>
+
+          <div class="deadlines" role="list">
+            <div class="deadline-item" role="listitem">
+              <div class="date-badge" aria-hidden="true">
+                <div style="font-size:14px">23</div>
+                <div class="muted small">Sep</div>
+              </div>
+              <div>
+                <div class="dead-desc" style="font-weight:700">Data Structures — Assignment 3</div>
+                <div class="dead-meta">Due: Sep 23, 2025 • 11:59 PM</div>
+              </div>
+            </div>
+
+            <div class="deadline-item" role="listitem">
+              <div class="date-badge">
+                <div style="font-size:14px">26</div>
+                <div class="muted small">Sep</div>
+              </div>
+              <div>
+                <div class="dead-desc" style="font-weight:700">Database Systems — Project Milestone</div>
+                <div class="dead-meta">Due: Sep 26, 2025 • 05:00 PM</div>
+              </div>
+            </div>
+
+            <div class="deadline-item" role="listitem">
+              <div class="date-badge">
+                <div style="font-size:14px">30</div>
+                <div class="muted small">Sep</div>
+              </div>
+              <div>
+                <div class="dead-desc" style="font-weight:700">OS — Lab Report</div>
+                <div class="dead-meta">Due: Sep 30, 2025 • 09:00 AM</div>
+              </div>
+            </div>
+
+          </div>
+
+          <h3 style="margin-top:18px">Profile</h3>
+          <div class="profile-card" id="profile">
+            <div class="avatar" style="width:72px;height:72px">
+              <img src="./human_img.jpg" alt="Ashwini profile image">
+            </div>
+            <div class="info">
+              <div style="font-weight:700">Ashwini V</div>
+              <div class="meta">Roll No: 20XX1234</div>
+              <div class="meta">ashwini@example.edu</div>
+              <div class="meta">Ethiraj College • Master Of Computer Application</div>
+              <div class="meta">Department: Computer Science</div>
+            </div>
+          </div>
+
+        </aside>
+
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> EduBoard</div>
+      </footer>
+    </main>
+
+  </div>
+</body>
+</html>
